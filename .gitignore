@@ -1,0 +1,21 @@
+# --- Fichiers de compilation Linux ---
+*.o
+*.ko
+*.mod.c
+*.order
+*.symvers
+.tmp_versions
+vmlinux
+*.mod
+
+# --- Logs et fichiers temporaires ---
+*.log
+*.txt
+
+# --- Binaires et archives (Optionnel : ajuste selon tes besoins) ---
+# Si tu ne veux pas pousser tes initramfs, garde ces lignes :
+initramfs.cpio.gz_4.7
+
+# --- Fichiers système/IDE ---
+.gdb_history
+.DS_Store

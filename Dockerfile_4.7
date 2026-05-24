@@ -1,0 +1,33 @@
+# On part de ton image de base
+FROM ubuntu:16.04
+
+# 1. Installation des outils de compilation, dépendances et utilitaires SSH d'époque
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    make \
+    libncurses5-dev \
+    libssl-dev \
+    bc \
+    bison \
+    flex \
+    nano \
+    git \
+    cpio \
+    linux-headers-generic \
+    openssh-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# 2. Installation de Radare2 depuis les sources
+WORKDIR /opt
+RUN git clone https://github.com/radareorg/radare2 \
+    && radare2/sys/install.sh --install \
+    && rm -rf radare2
+    
+# On revient dans ton dossier de travail pour le kernel
+WORKDIR /build
+
+# ====================================================================
+# AUTOMATISATION AU LANCEMENT
+# ====================================================================
+CMD ["sh", "-c", "cd /build/exploits && chmod +x build_exploits.sh && ./build_exploits.sh && cd /build && make -j$(nproc) && /bin/bash"]

@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.S": "asm",
+        "*.asm": "asm"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": ["keyword.other.directive.asm"],
+                "settings": { "foreground": "#FF007F" }
+            }
+        ]
+    },
+    "editor.semanticHighlighting.enabled": true,
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace"
+}
